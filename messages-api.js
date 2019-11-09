@@ -7,7 +7,10 @@ const app = express();
 //Middleware declarations
 const textPropValidatorMiddleware = (req, res, next) => {
   if (!req.body.text) {
-    res.status(400).end();
+    res
+      .status(400)
+      .send({ message: "Must include text property in the request body" })
+      .end();
   } else next();
 };
 
