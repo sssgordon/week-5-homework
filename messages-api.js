@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const db = require("./sequelize-rest");
+const { db } = require("./sequelize-rest");
+const movieRouter = require("./router");
 const app = express();
 
 //Middleware declarations
@@ -24,6 +25,8 @@ const jsonParser = bodyParser.json();
 app.use(jsonParser);
 
 app.use(requestCounterMiddleware);
+
+app.use(movieRouter);
 
 //CRUD
 app.post("/messages", textPropValidatorMiddleware, (req, res, next) => {

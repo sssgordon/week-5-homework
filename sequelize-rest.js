@@ -35,4 +35,4 @@ db.sync({ force: false })
   )
   .catch(console.error);
 
-module.exports = db;
+module.exports = { db, Movie };
